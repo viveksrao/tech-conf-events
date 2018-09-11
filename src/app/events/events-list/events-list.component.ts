@@ -12,7 +12,7 @@ export class EventsListComponent implements OnInit {
   ngOnInit() {
   }
 
-  event = {
+  techConfEventData = {
     id: 1,
     name: 'Angular Mix',
     date: '10/10/2018',
