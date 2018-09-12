@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { Error404Component } from './errors/error404/error404.component';
+import { EventRouteActivatorService } from './events/shared/event-route-activator.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { Error404Component } from './errors/error404/error404.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TechConfEventsDataService, ToastrService],
+  providers: [TechConfEventsDataService, ToastrService, EventRouteActivatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
