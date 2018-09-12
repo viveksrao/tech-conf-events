@@ -21,6 +21,7 @@ export class TechConfEventsDataService {
 // https://www.reactathon.com/
 // https://vuetoronto.com
 // http://www.nodesummit.com/
+// http://2018.ng-conf.org/
 const TECH_CONF_EVENTS = [
   {
     id: 1,
@@ -296,5 +297,48 @@ const TECH_CONF_EVENTS = [
         voters: ['bradgreen', 'igorminar']
       }
     ]
+  },
+  {
+    id: 7,
+    name: 'ng-conf',
+    date: '04/18/2019',
+    time: '7:00 am',
+    price: 1000.00,
+    imageUrl: 'http://2018.ng-conf.org/wp-content/uploads/2016/09/logo.png',
+    location:{
+      address: '555 South Main Street',
+      city: 'Salt Lake City',
+      country: 'USA'
+    },
+    sessions:[
+      {
+        id: 1,
+        name: "Authentication with NgRx",
+        presenter: "Brandon Roberts",
+        duration: 2,
+        level: "Advanced",
+        abstract: `As the lead developers of NgRx, the number one question we get asked is how to implement authentication with a reactive store. In this talk, I set out to answer this question by building an auth-based app with NgRx Store, Router, and Effects`,
+        voters: ['bradgreen', 'igorminar', 'martinfowler']
+      },
+      {
+        id: 2,
+        name: "How to hack an Angular app?",
+        presenter: "Asim Hussain",
+        duration: 3,
+        level: "Beginner",
+        abstract: `Thought hacking was hard? It’s not, it’s easy and I’m going to show you how! In this episode of CSI Salt Lake City, we’ll investigate a series of hacking stories and break them down step-by-step to see exactly how they did it. By the end, you’ll walk away a little bit more scared and a lot more prepared with some great practices you can apply immediately to your own applications.`,
+        voters: ['bradgreen', 'igorminar', 'martinfowler']
+      },
+      {
+        id: 3,
+        name: "Reusable Animations",
+        presenter: "Sam Brennan",
+        duration: 2,
+        level: "Intermediate",
+        abstract: `In this lightning talk we will go over how to take your animations to the next level. By using reusable animations, your project will not only be more efficient but more manageable than it was before learning these best practices. (and of course, this will be 80’s themed!)`,
+        voters: ['bradgreen', 'igorminar', 'martinfowler']
+      },
+    ]
+
   }
 ];
