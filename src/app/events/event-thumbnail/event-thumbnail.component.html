@@ -1,10 +1,13 @@
 <div class="well hoverwell thumbnail">
-  <h2>{{event.name}}</h2>
-  <div>Date: {{event.date}}</div>
-  <div>Time: {{event.time}}</div>
-  <div>Price: $ {{event.price}}</div>
-  <div>
-    <span>Location: {{event.location.address}}</span>
-    <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
+  <h2>{{techConfEvent?.name}}</h2>
+  <div>Date: {{techConfEvent?.date}}</div>
+  <div>Time: {{techConfEvent?.time}}</div>
+  <div>Price: $ {{techConfEvent?.price}}</div>
+  <div *ngIf="techConfEvent?.location">
+    <span>Location: {{techConfEvent?.location?.address}}</span>
+    <span class="pad-left">{{techConfEvent?.location?.city}}, {{techConfEvent?.location?.country}}</span>
+  </div>
+  <div *ngIf="techConfEvent?.onlineUrl">
+    Online URL: {{techConfEvent?.onlineUrl}}
   </div>
 </div>
