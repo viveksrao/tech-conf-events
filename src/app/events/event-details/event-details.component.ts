@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { TechConfEventsDataService } from '../shared/tech-conf-events-data.service';
 
 @Component({
@@ -9,10 +11,10 @@ import { TechConfEventsDataService } from '../shared/tech-conf-events-data.servi
 export class EventDetailsComponent implements OnInit {
   techConfEvent: any;
 
-  constructor(private techConfEventsDataService: TechConfEventsDataService) { }
+  constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.techConfEvent = this.techConfEventsDataService.getTechConfEvent(1);
+    this.techConfEvent = this.techConfEventsDataService.getTechConfEvent(+this.route.snapshot.params['id']);
   }
 
 }
