@@ -1,0 +1,22 @@
+<div class="container">
+  <img [src]="techConfEvent?.imageUrl" alt="techConfEvent?.name" class="event-image">
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{techConfEvent?.name}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div><strong>Date:</strong> {{techConfEvent?.date}}</div>
+      <div><strong>Time:</strong> {{techConfEvent?.time}}</div>
+      <div><strong>Price:</strong> {{techConfEvent?.price}}</div>
+    </div>
+    <div class="col-md-6">
+      <address>
+        <strong>Address:</strong><br/>
+        {{techConfEvent?.location?.address}}<br/>
+        {{techConfEvent?.location?.city}}, {{techConfEvent?.location?.country}}
+      </address>
+    </div>
+  </div>
+</div>
