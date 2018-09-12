@@ -14,4 +14,19 @@ export class EventThumbnailComponent implements OnInit {
   ngOnInit() {
   }
 
+  getPriceOfEvent(){
+    const isEventCostly = this.techConfEvent && this.techConfEvent.price > 500.00;
+    return {textDanger: isEventCostly, bold: isEventCostly}; // ngClass expects an Object to be returned
+    
+    // Returning a String Example 
+    // if(this.techConfEvent && this.techConfEvent.price > 500.00)
+      // return 'textDanger bold' // Returns a string which is a space separated list of the classes you want applied.
+    // return '';
+    
+    // Returning an array or an empty array Example 
+    // if(this.techConfEvent && this.techConfEvent.price > 500.00)
+      // return ['textDanger', 'bold'];
+    // return [];
+  }
+
 }

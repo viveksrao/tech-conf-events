@@ -7,3 +7,12 @@
 .thumbnail{
   min-height: 230px;
 }
+.green{
+  color: #003300 !important;
+}
+.textDanger{
+  color: #dc3545!important
+}
+.bold{
+  font-weight: bold;
+}
