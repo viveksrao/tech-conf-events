@@ -4,3 +4,6 @@
 .well div{
   color: #bbbbbb;
 }
+.thumbnail{
+  min-height: 230px;
+}
