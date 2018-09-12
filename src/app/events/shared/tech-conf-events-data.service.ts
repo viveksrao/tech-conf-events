@@ -10,6 +10,10 @@ export class TechConfEventsDataService {
   getTechConfEvents(){
     return TECH_CONF_EVENTS;
   }
+
+  getTechConfEvent(id: number){
+    return TECH_CONF_EVENTS.find(techConfEvent => techConfEvent.id === id);
+  }
 }
 
 // https://angularmix.com
