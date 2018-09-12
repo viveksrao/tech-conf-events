@@ -8,6 +8,8 @@ import { NavbarComponent } from './nav/navbar.component';
 import { TechConfEventsDataService } from './events/shared/tech-conf-events-data.service';
 import { ToastrService } from './common/toastr.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
     EventDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TechConfEventsDataService, ToastrService],
   bootstrap: [AppComponent]
