@@ -1,5 +1,9 @@
 <div>
   <h1>Upcoming JavaScript Events</h1>
   <hr>
-  <app-event-thumbnail [event]="techConfEventData"></app-event-thumbnail>
+  <div class="row">
+    <div class="col-md-5" *ngFor="let techConfEvent of techConfEventsData">
+      <app-event-thumbnail [techConfEvent]="techConfEvent"></app-event-thumbnail>
+    </div>
+  </div>
 </div>
