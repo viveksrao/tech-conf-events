@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,13 @@ export class TechConfEventsDataService {
   constructor() { }
 
   getTechConfEvents(){
-    return TECH_CONF_EVENTS;
+    let subject = new Subject();
+    setTimeout(() => {
+      subject.next(TECH_CONF_EVENTS);
+      subject.complete();
+    }, 100);
+    return subject;
+    // return TECH_CONF_EVENTS;
   }
 
   getTechConfEvent(id: number){
