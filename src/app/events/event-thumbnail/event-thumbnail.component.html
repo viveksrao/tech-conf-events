@@ -1,4 +1,4 @@
-<div class="well hoverwell thumbnail">
+<div class="well hoverwell thumbnail" [routerLink]="['/events', techConfEvent.id]">
   <h2>{{techConfEvent?.name}}</h2>
   <div>Date: {{techConfEvent?.date}}</div>
   <div [class.green]="techConfEvent?.time === '8:00 am'" [ngSwitch]="techConfEvent?.time">
