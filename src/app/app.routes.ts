@@ -8,7 +8,8 @@ import { EventRouteActivatorService } from './events/shared/event-route-activato
 export const appRoutes:Routes = [
   {
     path: 'events/new',
-    component: CreateEventComponent
+    component: CreateEventComponent,
+    canDeactivate: ['canDeactivateCreateEvent']
   },
   {
     path: 'events', 
