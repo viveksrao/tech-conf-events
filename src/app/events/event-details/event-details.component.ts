@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { TechConfEventsDataService } from '../shared/tech-conf-events-data.service';
+import { IEvent } from '../shared';
 
 @Component({
   selector: 'app-event-details',
@@ -9,7 +10,7 @@ import { TechConfEventsDataService } from '../shared/tech-conf-events-data.servi
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
-  techConfEvent: any;
+  techConfEvent: IEvent;
 
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 

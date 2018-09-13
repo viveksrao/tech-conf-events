@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { IEvent } from './event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ export class TechConfEventsDataService {
 
   constructor() { }
 
-  getTechConfEvents(){
-    let subject = new Subject();
+  getTechConfEvents():Observable<IEvent[]>{
+    let subject = new Subject<IEvent[]>();
     setTimeout(() => {
       subject.next(TECH_CONF_EVENTS);
       subject.complete();
@@ -17,7 +18,7 @@ export class TechConfEventsDataService {
     return subject;
   }
 
-  getTechConfEvent(id: number){
+  getTechConfEvent(id: number):IEvent{
     return TECH_CONF_EVENTS.find(techConfEvent => techConfEvent.id === id);
   }
 }
@@ -28,11 +29,11 @@ export class TechConfEventsDataService {
 // https://vuetoronto.com
 // http://www.nodesummit.com/
 // http://2018.ng-conf.org/
-const TECH_CONF_EVENTS = [
+const TECH_CONF_EVENTS:IEvent[] = [
   {
     id: 1,
     name: 'Angular Mix',
-    date: '10/10/2018',
+    date: new Date('10/10/2018'),
     time: '10:00 am',
     price: 2799.00,
     imageUrl: '/assets/images/angularmix.png',
@@ -92,7 +93,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 2,
     name: 'Visual Studio Live',
-    date: '10/07/2018',
+    date: new Date('10/07/2018'),
     time: '7:00 am',
     price: 2595.00,
     imageUrl: '/assets/images/ng-nl.png',
@@ -143,7 +144,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 3,
     name: 'Reactathon',
-    date: '09/07/2018',
+    date: new Date('09/07/2018'),
     time: '9:00 am',
     price: 759.00,
     imageUrl: '/assets/images/ng-conf.png',
@@ -212,7 +213,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 4,
     name: 'VueConf TO',
-    date: '11/14/2018',
+    date: new Date('11/14/2018'),
     time: '8:00 am',
     price: 799.00,
     imageUrl: '/assets/images/basic-shield.png',
@@ -254,7 +255,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 5,
     name: 'Node Summit 2018',
-    date: '07/24/2018',
+    date: new Date('07/24/2018'),
     time: '8:00 am',
     price: 400.00,
     imageUrl: '/assets/images/ng-vegas.png',
@@ -287,7 +288,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 6,
     name: 'Trees and Graphs In-Depth',
-    date: '10/02/2018',
+    date: new Date('10/02/2018'),
     time: '9:30 am',
     price: 400.00,
     imageUrl: 'https://frontendmasters.com/static/frontendmasters.0e71088726.svg',
@@ -307,7 +308,7 @@ const TECH_CONF_EVENTS = [
   {
     id: 7,
     name: 'ng-conf',
-    date: '04/18/2019',
+    date: new Date('04/18/2019'),
     time: '7:00 am',
     price: 1000.00,
     imageUrl: 'http://2018.ng-conf.org/wp-content/uploads/2016/09/logo.png',
