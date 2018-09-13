@@ -15,7 +15,6 @@ export class TechConfEventsDataService {
       subject.complete();
     }, 100);
     return subject;
-    // return TECH_CONF_EVENTS;
   }
 
   getTechConfEvent(id: number){
