@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TechConfEventsDataService } from '../shared/index';
 
 @Component({
   selector: 'app-create-event',
@@ -8,9 +9,16 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent implements OnInit {
   isDirty: boolean = true;
-  constructor(private router: Router) { }
+  // newEvent;
+  constructor(private router: Router, private techConfEventsDataService: TechConfEventsDataService) { }
 
   ngOnInit() {
+  }
+
+  saveEvent(formValues){
+    this.techConfEventsDataService.saveTechConfEvent(formValues);
+    this.isDirty = false;
+    this.router.navigate(['/events']);
   }
 
   cancel(){
