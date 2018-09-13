@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { Error404Component } from './errors/error404/error404.component';
 
+import { AuthService } from './user/shared/auth.service';
 import { ToastrService } from './common/toastr.service';
 
 import { appRoutes } from './app.routes';
@@ -38,6 +39,7 @@ import { appRoutes } from './app.routes';
     ToastrService, 
     EventRouteActivatorService,
     EventsListResolverService,
+    AuthService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
