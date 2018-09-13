@@ -21,6 +21,12 @@ export class TechConfEventsDataService {
   getTechConfEvent(id: number):IEvent{
     return TECH_CONF_EVENTS.find(techConfEvent => techConfEvent.id === id);
   }
+
+  saveTechConfEvent(techConfEvent){
+    techConfEvent.id = 999
+    techConfEvent.sessions = [];
+    TECH_CONF_EVENTS.push(techConfEvent);
+  }
 }
 
 // https://angularmix.com
