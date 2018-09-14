@@ -13,6 +13,7 @@ export class EventDetailsComponent implements OnInit {
   techConfEvent: IEvent;
   addMode: boolean;
   filterBy: string = 'all';
+  sortBy: string = 'votes';
 
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
