@@ -1,13 +1,13 @@
 <div class="well hoverwell thumbnail" [routerLink]="['/events', techConfEvent.id]">
-  <h2>{{techConfEvent?.name}}</h2>
-  <div>Date: {{techConfEvent?.date}}</div>
+  <h2>{{techConfEvent?.name | uppercase}}</h2>
+  <div>Date: {{techConfEvent?.date | date:'shortDate' }}</div>
   <div [class.green]="techConfEvent?.time === '8:00 am'" [ngSwitch]="techConfEvent?.time">
     Time: {{techConfEvent?.time}}
     <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
     <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
     <span *ngSwitchDefault>(Normal Start)</span>
   </div>
-  <div>Price: <span [ngClass]="getPriceOfEvent()">$ {{techConfEvent?.price}}</span></div>
+  <div>Price: <span [ngClass]="getPriceOfEvent()"> {{techConfEvent?.price | currency:'USD' }}</span></div>
   <div [hidden]="!techConfEvent?.location">
     <span>Location: {{techConfEvent?.location?.address}}</span>
     <span class="pad-left">{{techConfEvent?.location?.city}}, {{techConfEvent?.location?.country}}</span>
