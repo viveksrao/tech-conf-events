@@ -12,7 +12,8 @@ import {
   SessionListComponent,
   TechConfEventsDataService,
   EventsListResolverService,
-  EventRouteActivatorService
+  EventRouteActivatorService,
+  DurationPipe
 } from './events/index';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -35,7 +36,8 @@ import { appRoutes } from './app.routes';
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
