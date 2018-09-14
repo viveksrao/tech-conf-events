@@ -3,7 +3,7 @@
   <hr>
   <div class="row">
     <div class="col-md-5" *ngFor="let techConfEvent of techConfEventsData">
-      <app-event-thumbnail (click)="handleThumbnailClick(techConfEvent.name)" [techConfEvent]="techConfEvent"></app-event-thumbnail>
+      <app-event-thumbnail [techConfEvent]="techConfEvent"></app-event-thumbnail>
     </div>
   </div>
 </div>
