@@ -12,6 +12,7 @@ import { IEvent, ISession } from '../shared';
 export class EventDetailsComponent implements OnInit {
   techConfEvent: IEvent;
   addMode: boolean;
+  filterBy: string = 'all';
 
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
