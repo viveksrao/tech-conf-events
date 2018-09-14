@@ -9,6 +9,7 @@ import {
   EventDetailsComponent,
   EventThumbnailComponent,
   EventsListComponent,
+  SessionListComponent,
   TechConfEventsDataService,
   EventsListResolverService,
   EventRouteActivatorService
@@ -31,7 +32,8 @@ import { appRoutes } from './app.routes';
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
