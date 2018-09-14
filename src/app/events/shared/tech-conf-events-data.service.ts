@@ -24,8 +24,13 @@ export class TechConfEventsDataService {
 
   saveTechConfEvent(techConfEvent){
     techConfEvent.id = 999
-    techConfEvent.sessions = [];
+    techConfEvent.session = [];
     TECH_CONF_EVENTS.push(techConfEvent);
+  }
+
+  updateTechConfEvent(techConfEvent){
+    let index = TECH_CONF_EVENTS.findIndex(x => x.id = techConfEvent.id)
+    TECH_CONF_EVENTS[index] = techConfEvent;
   }
 }
 
