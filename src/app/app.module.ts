@@ -20,6 +20,7 @@ import { Error404Component } from './errors/error404/error404.component';
 
 import { AuthService } from './user/shared/auth.service';
 import { ToastrService } from './common/toastr.service';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 import { appRoutes } from './app.routes';
 
@@ -33,7 +34,8 @@ import { appRoutes } from './app.routes';
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
