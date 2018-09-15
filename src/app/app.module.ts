@@ -25,9 +25,9 @@ import {
   JQ_TOKEN, 
   TOASTR_TOKEN, 
   Toastr, 
-  CollapsibleWellComponent  
+  CollapsibleWellComponent,
+  SimpleModalComponent 
 } from './common/index';
-
 
 import { appRoutes } from './app.routes';
 
@@ -46,7 +46,8 @@ let jQuery = window['$'];
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,7 @@ let jQuery = window['$'];
   providers: [
     TechConfEventsDataService, 
     { provide: TOASTR_TOKEN, useValue: toastr }, 
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivatorService,
     EventsListResolverService,
     AuthService,
