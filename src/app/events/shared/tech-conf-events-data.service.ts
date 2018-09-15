@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { IEvent } from './event.model';
+import { IEvent, ISession } from './event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,24 @@ export class TechConfEventsDataService {
   updateTechConfEvent(techConfEvent){
     let index = TECH_CONF_EVENTS.findIndex(x => x.id = techConfEvent.id)
     TECH_CONF_EVENTS[index] = techConfEvent;
+  }
+
+  searchSessions(searchTerm: string){
+    var term = searchTerm.toLocaleLowerCase();
+    var results: ISession[] = [];
+    TECH_CONF_EVENTS.forEach(techConfEvent => {
+      var matchingSessions = techConfEvent.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
+      matchingSessions = matchingSessions.map((session:any) => {
+        session.techConfEventId = techConfEvent.id;
+        return session;
+      });
+      results = results.concat(matchingSessions);
+    });
+    var emitter = new EventEmitter(true);
+    setTimeout(() => {
+      emitter.emit(results);
+    }, 100);
+    return emitter;
   }
 }
 
