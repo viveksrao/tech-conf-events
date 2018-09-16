@@ -14,7 +14,8 @@ import {
   TechConfEventsDataService,
   EventsListResolverService,
   EventRouteActivatorService,
-  DurationPipe
+  DurationPipe,
+  VoterService
 } from './events/index';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -69,7 +70,8 @@ let jQuery = window['$'];
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    }
+    },
+    VoterService
   ],
   bootstrap: [AppComponent]
 })
