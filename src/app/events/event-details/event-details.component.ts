@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { TechConfEventsDataService } from '../shared/tech-conf-events-data.service';
 import { IEvent, ISession } from '../shared';
@@ -18,7 +18,10 @@ export class EventDetailsComponent implements OnInit {
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.techConfEvent = this.techConfEventsDataService.getTechConfEvent(+this.route.snapshot.params['id']);
+    this.route.params.forEach((params: Params) => {
+      this.techConfEvent = this.techConfEventsDataService.getTechConfEvent(+params['id']);
+      this.addMode = false;
+    });
   }
 
   addSession(){
