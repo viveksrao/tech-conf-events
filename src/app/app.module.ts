@@ -10,6 +10,7 @@ import {
   EventThumbnailComponent,
   EventsListComponent,
   SessionListComponent,
+  UpvoteComponent,
   TechConfEventsDataService,
   EventsListResolverService,
   EventRouteActivatorService,
@@ -49,7 +50,8 @@ let jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
