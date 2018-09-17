@@ -12,6 +12,7 @@ export class SessionListComponent implements OnInit, OnChanges {
   @Input() sessions:ISession[];
   @Input() filterBy: string;
   @Input() sortBy: string;
+  @Input() techConfEventId: number;
   visibleSessions: ISession[] = [];
 
   constructor(private authService: AuthService, private voterService: VoterService) { }
@@ -30,7 +31,7 @@ export class SessionListComponent implements OnInit, OnChanges {
     if(this.userHasVoted(session)){
       this.voterService.deleteVoter(session, this.authService.currentUser.userName); 
     } else{
-      this.voterService.addVoter(session, this.authService.currentUser.userName)
+      this.voterService.addVoter(this.techConfEventId, session, this.authService.currentUser.userName)
     }
     if(this.sortBy === 'votes'){
       this.visibleSessions.sort(sortByVotesDesc);
