@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IEvent, ISession } from './event.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -22,15 +22,19 @@ export class TechConfEventsDataService {
   }
 
   saveTechConfEvent(techConfEvent){
-    techConfEvent.id = 999
-    techConfEvent.session = [];
-    TECH_CONF_EVENTS.push(techConfEvent);
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post<IEvent>('/api/events', techConfEvent, options)
+    .pipe(catchError(this.handleError<IEvent>('saveTechConfEvent')));
   }
 
-  updateTechConfEvent(techConfEvent){
-    let index = TECH_CONF_EVENTS.findIndex(x => x.id = techConfEvent.id)
-    TECH_CONF_EVENTS[index] = techConfEvent;
-  }
+  // updateTechConfEvent(techConfEvent){
+  //   let index = TECH_CONF_EVENTS.findIndex(x => x.id = techConfEvent.id)
+  //   TECH_CONF_EVENTS[index] = techConfEvent;
+  // }
 
   searchSessions(searchTerm: string){
     var term = searchTerm.toLocaleLowerCase();
@@ -65,6 +69,7 @@ export class TechConfEventsDataService {
 // https://vuetoronto.com
 // http://www.nodesummit.com/
 // http://2018.ng-conf.org/
+// https://www.react-europe.org
 const TECH_CONF_EVENTS:IEvent[] = [
   {
     id: 1,
@@ -382,5 +387,19 @@ const TECH_CONF_EVENTS:IEvent[] = [
         voters: ['bradgreen', 'igorminar', 'martinfowler']
       },
     ]
+  },
+  {
+    id: 8,
+    name: 'ReactEurope',
+    date: new Date('05/23/2019'),
+    time: '8:45 am',
+    price: 600.00,
+    imageUrl: '/assets/images/ng-conf.png',
+    location:{
+      address: '327 Rue de Charenton, 75012',
+      city: 'Paris',
+      country: 'France'
+    },
+    sessions:[]
   }
 ];
