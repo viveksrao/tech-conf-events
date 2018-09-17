@@ -17,7 +17,8 @@ import {
   EventRouteActivatorService,
   DurationPipe,
   VoterService,
-  LocationValidatorDirective
+  LocationValidatorDirective,
+  EventResolverService
 } from './events/index';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -68,14 +69,15 @@ let jQuery = window['$'];
     TechConfEventsDataService, 
     { provide: TOASTR_TOKEN, useValue: toastr }, 
     { provide: JQ_TOKEN, useValue: jQuery },
-    EventRouteActivatorService,
+    // EventRouteActivatorService,
     EventsListResolverService,
     AuthService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
     },
-    VoterService
+    VoterService,
+    EventResolverService
   ],
   bootstrap: [AppComponent]
 })
