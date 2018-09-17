@@ -11,20 +11,14 @@ export class TechConfEventsDataService {
 
   constructor(private http: HttpClient) { }
 
-  private handleError<T>(operation = 'operation', result?: T){
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    }
-  }
-
   getTechConfEvents():Observable<IEvent[]>{
     return this.http.get<IEvent[]>('/api/events')
           .pipe(catchError(this.handleError<IEvent[]>('getTechConfEvents', [])));
   }
 
-  getTechConfEvent(id: number):IEvent{
-    return TECH_CONF_EVENTS.find(techConfEvent => techConfEvent.id === id);
+  getTechConfEvent(id: number):Observable<IEvent>{
+    return this.http.get<IEvent>('/api/events/' + id)
+          .pipe(catchError(this.handleError<IEvent>('getTechConfEvent')));
   }
 
   saveTechConfEvent(techConfEvent){
@@ -55,6 +49,14 @@ export class TechConfEventsDataService {
     }, 100);
     return emitter;
   }
+
+  private handleError<T>(operation = 'operation', result?: T){
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    }
+  }
+
 }
 
 // https://angularmix.com
