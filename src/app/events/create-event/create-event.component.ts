@@ -16,9 +16,10 @@ export class CreateEventComponent implements OnInit {
   }
 
   saveEvent(formValues){
-    this.techConfEventsDataService.saveTechConfEvent(formValues);
-    this.isDirty = false;
-    this.router.navigate(['/events']);
+    this.techConfEventsDataService.saveTechConfEvent(formValues).subscribe(() => {
+      this.isDirty = false;
+      this.router.navigate(['/events']);
+    });
   }
 
   cancel(){
