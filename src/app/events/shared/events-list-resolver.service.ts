@@ -11,7 +11,7 @@ export class EventsListResolverService implements Resolve<any> {
   constructor(private techConfEventsDataService: TechConfEventsDataService) { }
 
   resolve() {
-    return this.techConfEventsDataService.getTechConfEvents().pipe(map(techConfEventsData => techConfEventsData))
+    return this.techConfEventsDataService.getTechConfEvents();
   }
 
 }
