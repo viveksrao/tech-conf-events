@@ -6,3 +6,4 @@ export * from './restricted-words.validator';
 export * from './duration.pipe';
 export * from './voter.service';
 export * from './location-validator.directive';
+export * from './event-resolver.service';
