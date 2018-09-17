@@ -18,8 +18,8 @@ export class EventDetailsComponent implements OnInit {
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      this.techConfEvent = this.techConfEventsDataService.getTechConfEvent(+params['id']);
+    this.route.data.forEach((data) => {
+      this.techConfEvent = data['techConfEventData'];
       this.addMode = false;
     });
   }
