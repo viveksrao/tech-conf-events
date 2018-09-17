@@ -1,21 +1,26 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { IEvent, ISession } from './event.model';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechConfEventsDataService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private handleError<T>(operation = 'operation', result?: T){
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    }
+  }
 
   getTechConfEvents():Observable<IEvent[]>{
-    let subject = new Subject<IEvent[]>();
-    setTimeout(() => {
-      subject.next(TECH_CONF_EVENTS);
-      subject.complete();
-    }, 100);
-    return subject;
+    return this.http.get<IEvent[]>('/api/events')
+          .pipe(catchError(this.handleError<IEvent[]>('getTechConfEvents', [])));
   }
 
   getTechConfEvent(id: number):IEvent{
@@ -375,6 +380,5 @@ const TECH_CONF_EVENTS:IEvent[] = [
         voters: ['bradgreen', 'igorminar', 'martinfowler']
       },
     ]
-
   }
 ];
