@@ -32,7 +32,7 @@ export class EventDetailsComponent implements OnInit {
     const nextId = Math.max.apply(null, this.techConfEvent.sessions.map(s => s.id));
     session.id = nextId + 1;
     this.techConfEvent.sessions.push(session);
-    this.techConfEventsDataService.updateTechConfEvent(this.techConfEvent);
+    this.techConfEventsDataService.saveTechConfEvent(this.techConfEvent).subscribe();
     this.addMode = false;
   }
 
