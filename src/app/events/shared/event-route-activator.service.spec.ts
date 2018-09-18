@@ -9,7 +9,4 @@ describe('EventRouteActivatorService', () => {
     });
   });
 
-  it('should be created', inject([EventRouteActivatorService], (service: EventRouteActivatorService) => {
-    expect(service).toBeTruthy();
-  }));
 });

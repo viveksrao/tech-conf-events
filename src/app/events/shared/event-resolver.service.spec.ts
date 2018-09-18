@@ -9,7 +9,4 @@ describe('EventResolverService', () => {
     });
   });
 
-  it('should be created', inject([EventResolverService], (service: EventResolverService) => {
-    expect(service).toBeTruthy();
-  }));
 });

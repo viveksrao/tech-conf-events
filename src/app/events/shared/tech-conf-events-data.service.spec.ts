@@ -9,7 +9,4 @@ describe('TechConfEventsDataService', () => {
     });
   });
 
-  it('should be created', inject([TechConfEventsDataService], (service: TechConfEventsDataService) => {
-    expect(service).toBeTruthy();
-  }));
 });
