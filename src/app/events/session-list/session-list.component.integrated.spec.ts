@@ -17,15 +17,21 @@ describe('SessionListComponent', () => {
       debugEl: DebugElement;
   
   beforeEach(async(() => {
-    let mockAuthService = {};
-    let mockVoterService = {};
+    let mockAuthService = {
+      isAuthenticated: () => true,
+      currentUser: { userName: 'Joe' }
+    };
+    let mockVoterService = {
+      userHasVoted: () => true
+    };
 
     TestBed.configureTestingModule({
       imports: [],
       declarations: [
         SessionListComponent, 
         UpvoteComponent, 
-        CollapsibleWellComponent
+        CollapsibleWellComponent,
+        DurationPipe
       ],
       providers: [
         { provide: AuthService, useValue: mockAuthService },
@@ -52,7 +58,8 @@ describe('SessionListComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      // expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
     });
   });
 });
