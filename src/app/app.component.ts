@@ -7,9 +7,9 @@ import { AuthService } from './user/shared/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.authService.checkAuthenticationStatus();
   }
 }

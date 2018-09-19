@@ -6,5 +6,5 @@ describe('UserModule', () => {
   beforeEach(() => {
     userModule = new UserModule();
   });
-  
+
 });

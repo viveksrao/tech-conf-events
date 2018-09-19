@@ -36,8 +36,8 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
-  saveSession(formValues){
-    let session:ISession = {
+  saveSession(formValues) {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       duration: +formValues.duration,
@@ -46,11 +46,11 @@ export class CreateSessionComponent implements OnInit {
       abstract: formValues.abstract,
       voters: []
     };
-    this.saveNewSession.emit(session)
+    this.saveNewSession.emit(session);
   }
 
-  cancel(){
-    this.cancelAddSession.emit()
+  cancel() {
+    this.cancelAddSession.emit();
   }
 
 }

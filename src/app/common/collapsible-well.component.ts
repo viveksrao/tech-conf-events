@@ -7,14 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CollapsibleWellComponent implements OnInit {
 
-  visible: boolean = true;
+  visible = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleContent(){
+  toggleContent() {
     this.visible = !this.visible;
   }
 

@@ -8,7 +8,7 @@ import { IEvent } from '../shared';
   styleUrls: ['./events-list.component.css']
 })
 export class EventsListComponent implements OnInit {
-  techConfEventsData:IEvent[];
+  techConfEventsData: IEvent[];
 
   constructor(private route: ActivatedRoute) { }
 

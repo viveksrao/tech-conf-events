@@ -20,18 +20,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(formValues){
+  login(formValues) {
     this.authService.loginUser(formValues.userName, formValues.password)
       .subscribe(resp => {
-        if(!resp){
+        if (!resp) {
           this.loginInvalid = true;
-        }else{
+        } else {
           this.router.navigate(['events']);
         }
       });
   }
 
-  cancel(){
+  cancel() {
     this.router.navigate(['events']);
   }
 

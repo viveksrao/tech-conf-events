@@ -8,21 +8,21 @@ import { TechConfEventsDataService } from '../shared/index';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-  isDirty: boolean = true;
+  isDirty = true;
   // newEvent;
   constructor(private router: Router, private techConfEventsDataService: TechConfEventsDataService) { }
 
   ngOnInit() {
   }
 
-  saveEvent(formValues){
+  saveEvent(formValues) {
     this.techConfEventsDataService.saveTechConfEvent(formValues).subscribe(() => {
       this.isDirty = false;
       this.router.navigate(['/events']);
     });
   }
 
-  cancel(){
+  cancel() {
     this.router.navigate(['/events']);
   }
 

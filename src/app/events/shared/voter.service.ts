@@ -11,7 +11,7 @@ export class VoterService {
 
   constructor(private http: HttpClient) { }
 
-  deleteVoter(techConfEventId: number, session: ISession, voterName: string){
+  deleteVoter(techConfEventId: number, session: ISession, voterName: string) {
     session.voters = session.voters.filter(voter => voter !== voterName);
     const url = `/api/events/${techConfEventId}/sessions/${session.id}/voters/${voterName}`;
     this.http.delete(url)
@@ -19,10 +19,10 @@ export class VoterService {
         .subscribe();
   }
 
-  addVoter(techConfEventId: number, session: ISession, voterName: string){
+  addVoter(techConfEventId: number, session: ISession, voterName: string) {
     session.voters.push(voterName);
     const options = {
-      headers: new HttpHeaders({'Content-Type':'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
     const url = `/api/events/${techConfEventId}/sessions/${session.id}/voters/${voterName}`;
     this.http.post(url, {}, options)
@@ -30,15 +30,15 @@ export class VoterService {
         .subscribe();
   }
 
-  userHasVoted(session: ISession, voterName: string){
+  userHasVoted(session: ISession, voterName: string) {
     return session.voters.some(voter => voter === voterName);
   }
 
-  private handleError<T>(operation = 'operation', result?: T){
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);
-    }
+    };
   }
 
 }

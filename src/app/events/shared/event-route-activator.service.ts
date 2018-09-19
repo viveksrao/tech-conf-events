@@ -7,12 +7,13 @@ import { TechConfEventsDataService } from './tech-conf-events-data.service';
 })
 export class EventRouteActivatorService implements CanActivate {
 
-  constructor(private techConfEventsDataService: TechConfEventsDataService, private router:Router) { }
+  constructor(private techConfEventsDataService: TechConfEventsDataService, private router: Router) { }
 
-  canActivate(activatedRoute: ActivatedRouteSnapshot){
+  canActivate(activatedRoute: ActivatedRouteSnapshot) {
     const eventExists = !!this.techConfEventsDataService.getTechConfEvent(+activatedRoute.params['id']);
-    if(!eventExists)
+    if (!eventExists) {
       this.router.navigate(['/404']);
+    }
     return eventExists;
   }
 }

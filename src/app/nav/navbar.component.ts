@@ -9,8 +9,8 @@ import { ISession, TechConfEventsDataService } from '../events';
 })
 export class NavbarComponent implements OnInit {
 
-  searchTerm: string = "";
-  foundSessions:ISession[];
+  searchTerm = '';
+  foundSessions: ISession[];
 
   constructor(public authService: AuthService, private techConfEventsDataService: TechConfEventsDataService) { }
 

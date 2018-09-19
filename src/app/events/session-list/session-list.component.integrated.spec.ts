@@ -1,6 +1,6 @@
 import {TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser'
+import { By } from '@angular/platform-browser';
 
 import { SessionListComponent } from './session-list.component';
 import { AuthService } from '../../user/shared/auth.service';
@@ -15,21 +15,21 @@ describe('SessionListComponent', () => {
       component: SessionListComponent,
       element: HTMLElement,
       debugEl: DebugElement;
-  
+
   beforeEach(async(() => {
-    let mockAuthService = {
+    const mockAuthService = {
       isAuthenticated: () => true,
       currentUser: { userName: 'Joe' }
     };
-    let mockVoterService = {
+    const mockVoterService = {
       userHasVoted: () => true
     };
 
     TestBed.configureTestingModule({
       imports: [],
       declarations: [
-        SessionListComponent, 
-        UpvoteComponent, 
+        SessionListComponent,
+        UpvoteComponent,
         CollapsibleWellComponent,
         DurationPipe
       ],
@@ -37,7 +37,7 @@ describe('SessionListComponent', () => {
         { provide: AuthService, useValue: mockAuthService },
         { provide: VoterService, useValue: mockVoterService }
       ],
-      schemas:[]
+      schemas: []
     });
   }));
 

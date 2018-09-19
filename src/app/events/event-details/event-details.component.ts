@@ -12,8 +12,8 @@ import { IEvent, ISession } from '../shared';
 export class EventDetailsComponent implements OnInit {
   techConfEvent: IEvent;
   addMode: boolean;
-  filterBy: string = 'all';
-  sortBy: string = 'votes';
+  filterBy = 'all';
+  sortBy = 'votes';
 
   constructor(private techConfEventsDataService: TechConfEventsDataService, private route: ActivatedRoute) { }
 
@@ -24,11 +24,11 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
-  addSession(){
+  addSession() {
     this.addMode = true;
   }
 
-  saveNewSession(session: ISession){
+  saveNewSession(session: ISession) {
     const nextId = Math.max.apply(null, this.techConfEvent.sessions.map(s => s.id));
     session.id = nextId + 1;
     this.techConfEvent.sessions.push(session);
@@ -36,7 +36,7 @@ export class EventDetailsComponent implements OnInit {
     this.addMode = false;
   }
 
-  cancelAddSession(){
+  cancelAddSession() {
     this.addMode = false;
   }
 
