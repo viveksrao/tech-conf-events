@@ -9,7 +9,7 @@ import { TechConfEventsDataService } from '../shared/index';
 })
 export class CreateEventComponent implements OnInit {
   isDirty = true;
-  // newEvent;
+  newEvent;
   constructor(private router: Router, private techConfEventsDataService: TechConfEventsDataService) { }
 
   ngOnInit() {
