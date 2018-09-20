@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   username;
   password;
-  mouseroverLogin;
+  mouseoverLogin;
   loginInvalid = false;
 
   constructor(private authService: AuthService, private router: Router) { }
